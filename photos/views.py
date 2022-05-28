@@ -8,3 +8,7 @@ def gallery(request):
 def gallery(request):
     return render(request, 'photos/photo.html')
 
+def gallery(request):
+    return render(request, 'photos/add.html')
+
+
