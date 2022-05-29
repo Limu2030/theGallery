@@ -10,10 +10,10 @@ class Category(models.Model):
         return self.name
 
 class Photo(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(null=False, blank=False)
     description = models.TextField(max_length=500, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self) -> str:
         return self.name        
