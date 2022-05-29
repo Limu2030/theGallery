@@ -1,85 +1,28 @@
-{% extends 'pics/base.html'%}
+{% extends 'pics/base.html'%} {% block content %}
 
-{% block content %}
-
-<body class="m-5">
-
-
-  <div class="container">
-
-      <div class="row">
-          
-          
-          <div class="col-md-9">
-              
-              <div class="row">
-                          <!-- photo 1 -->
-                  <div class="col-md-4">
-                      <div class="card mx-5" style="width: 18rem;">
-                          <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 " class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Category: Interior Decor</p>
-                          </div>
-                          <a href="{% url 'photo'%}" class="btn btn-outline-dark btn-sm m-1">view</a>
-                        </div>
-                  </div>
-                  <!-- photo 2 -->
-                  <div class="col-md-4">
-                      <div class="card mx-5" style="width: 18rem;">
-                          <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 " class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Category: Interior Decor</p>
-                          </div>
-                          <a href="{% url 'photo'%}" class="btn btn-outline-dark btn-sm m-1">view</a>
-                        </div>
-                  </div>
-                  <!-- photo 3 -->
-                  <div class="col-md-4">
-                      <div class="card mx-5" style="width: 18rem;">
-                          <img src="https://images.unsplash.com/photo-1560440021-33f9b867899d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=659&q=80 " class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Category: Interior Decor</p>
-                          </div>
-                          <a href="{% url 'photo'%}" class="btn btn-outline-dark btn-sm m-1">view</a>
-                        </div>
-                  </div>
-                  <!-- photo 4 -->
-                  <div class="col-md-4">
-                      <div class="card mx-5" style="width: 18rem;">
-                          <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 " class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Category: Interior Decor</p>
-                          </div>
-                          <a href="{% url 'photo'%}" class="btn btn-outline-dark btn-sm m-1">view</a>
-                        </div>
-                  </div>
-                  <!-- photo 5 -->
-                  <div class="col-md-4">
-                      <div class="card mx-5" style="width: 18rem;">
-                          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80 " class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Category: Interior Decor</p>
-                          </div>
-                          <a href="{% url 'photo'%}" class="btn btn-outline-dark btn-sm m-1">view</a>
-                        </div>
-                  </div>
-                  <!-- photo 6 -->
-                  <div class="col-md-4">
-                      <div class="card mx-5" style="width: 18rem;">
-                          <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80 " class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Category: Interior Decor</p>
-                          </div>
-                          <a href="{% url 'photo'%}" class="btn btn-outline-dark btn-sm m-1">view</a>
-                        </div>
-                  </div>
-              </div>
-
-
-          </div>
+<div class="row">
+  {% for photo in photos %}
+  <div class="col-sm-12 col-md-6 col-xl-4">
+    <div class="card w-100 my-2">
+      <img
+        src="{{ photo.image.url }}"
+        class="w-100"
+        style="height: 300px; object-fit: cover; aspect-ratio: 1 / 1"
+        alt="..."
+      />
+      <div class="card-body">
+        <p class="card-text">{{ photo.category.name}}</p>
       </div>
+      <a
+        href="{% url 'photo' photo.id %}"
+        class="btn btn-outline-dark btn-sm m-1"
+        >view</a
+      >
+    </div>
   </div>
-
-</body>
+  {% empty %}
+  <p>No photos....</p>
+  {% endfor %}
+</div>
 
 {% endblock %}
