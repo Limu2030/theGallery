@@ -12,9 +12,9 @@
 
 ## Description
 
-<p>theGallery is an application where you can view pictures of things you like</p>
+<p>theGallery is an application where you can view pictures of your field of passion and interest</p>
 
-theGallery allows you to:
+It allows you to:
 <ol>
 <li>View different photos that interest you </li>
 <li>Click on a single photo to expand it and also view the details of the photo</li>
@@ -52,7 +52,7 @@ theGallery allows you to:
   </li>
   <li> Install dependancies
 
-        $ pip install flask || pip3 install flask
+        $ pip freeze -r requirements.txt
   </li>
 </ol>
 
