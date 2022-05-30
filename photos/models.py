@@ -14,7 +14,7 @@ class Location(models.Model):
     location = models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return self.name
+        return self.location 
 
 class Photo(models.Model):
     id = models.AutoField(primary_key=True)
