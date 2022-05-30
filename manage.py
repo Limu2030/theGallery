@@ -4,6 +4,12 @@ import os
 import sys
 
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append("gallery")
+os.environ['DJANGO_SETTINGS_MODULE'] = 'THEGALLERY.settings'
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "THEGALLERY.settings")
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gallery.settings')
