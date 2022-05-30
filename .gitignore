@@ -12,10 +12,4 @@ db.sqlite3
 db.sqlite3-journal
 media
 <gallery>/staticfiles/
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+<gallery>/staticfiles/media/
