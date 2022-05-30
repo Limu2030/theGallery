@@ -4,13 +4,12 @@ from .models import Category, Photo
 # Create your views here.
 
 def gallery(request):
-    user = request.user
+    
     category = request.GET.get('category')
     if category == None:
-        photos = Photo.objects.filter(category__user=user)
+        photos = Photo.objects.all()
     else:
-        photos = Photo.objects.filter(
-            category__name=category, category__user=user)
+        photos = Photo.objects.filter( category__name=category)
 
 
     categories = Category.objects.all()
