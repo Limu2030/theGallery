@@ -5,18 +5,42 @@
 <div class=" row justify-content-center">
     <div class="col-md-4 mt-5">
         <a href="{% url 'gallery'%}" class="btn btn-dark">Go back</a>
-        <form action="">
 
+       <div class="card mt-4">
+        <form method="POST" action=" " enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-group m-3">
                 <label>Description</label>
-                <input type="text" placeholder="Enter your description" class="form-control">
+                <input required name= "description" type="text" placeholder="Enter your description" class="form-control">
+            </div>
+            <div class="form-group m-3">
+                <label>Select category</label>
+                <select name="category" class="form-control">
+                    
+                    <option value="none">Select a category</option>
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+
+                    
+                </select> 
+                <div class="form-group m-3">
+                    <label>Create a new category</label>
+                    <input name= "category_new" type="text" placeholder=" Create a new category " class="form-control">
+                </div>
+
+
+
             </div>
             <div class="m-3">
                 <label for="formFile" class="form-label">Upload image</label>
-                <input class="form-control" type="file" id="formFile">
+                <input required name="image" class="form-control" type="file" id="formFile">
             </div> 
 
+            <button type="submit" class="btn btn-primary m-3">Submit</button>
+
         </form>
+       </div>
     </div>
 
 </div>
